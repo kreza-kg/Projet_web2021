@@ -10,8 +10,17 @@
     <title>Document</title>
 </head>
 <body>
-<header></header>
+<header>
+    <div>
+        <h1></h1>
+    </div>
+</header>
 <div></div>
-<footer></footer>
+<footer>
+    <?php
+    // Importation footer (require)
+    require('View/Affichage/footer.php');
+    ?>
+</footer>
 </body>
 </html>

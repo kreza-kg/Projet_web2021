@@ -11,8 +11,10 @@ Ensuite sur ce site il y aura differentes type de données, le site porte en gé
 il y aura donc plusieurs pages sur ces differents sujets.
 
 Pour afficher les données du site nous allons utiliser les données suivante pour la base de donnée :
-
-
+    
+    User : user
+    Mdp  : user
+    fichier : Projet21
 
 Sprint 1 : Je veux avoir le sujet de mon site web, je veux qu'il soit affichable, les differents section du site soit
 crée.
