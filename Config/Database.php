@@ -1,8 +1,8 @@
 <?php
 define("SERVEUR","localhost");
-define("USER","user");
-define("MDP","user");
-define("BD","");
+define("USER","root");
+define("MDP","");
+define("BD","SiteWeb2021");
 
 function connexionBd(){
     try  {
