@@ -2,15 +2,15 @@
 include('Config/Database.php');
 $connexion = connexionBd();
 
-if(!isset($_SESSION)){
-    header("location:homepage.php");
-}
+// ** test **   if(!isset($_SESSION)){
+//                  header("location:View/Homepage/homepage.php");
+//              }
 
 //**** Requete ****/
 
-$RequeteSujet = 'SELECT * FROM sujets';
+$RequeteSujet = "SELECT * FROM sujet";
 $info2=$connexion->query($RequeteSujet );
-$req1=$info2->fetchALL();
+$req1=$info2->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 
@@ -21,7 +21,8 @@ $req1=$info2->fetchALL();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="./Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
+    <link  href="../../Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
+    <link href="../../Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
 </head>
 <body>
@@ -31,18 +32,21 @@ $req1=$info2->fetchALL();
     require('View/Affichage/header.php');
     ?>
     <div>
-        <nav>
+        <nav id="menu_deroulant_principal">
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li class="base_li_menu" ><a href="#">Accueil</a></li>
                 <!-- Début du menu déroulant -->
-                <li><a href="#">Science</a>
+                <li class="base_li_menu"><a href="#">Science</a>
                     <ul>
-                        <?php foreach($req1 as $key ):?>
-                            <li><a href="<?=$key;?>"><?=$key;?></a></li>
-                        <?php endforeach; ?>
+                            <li class="menu_science_deroulant">
+                            <?php foreach($req1 as $key => $value): ?>
+                                <a href="<?=$value->id?>"><?=$value->nom?></a>
+                            <?php endforeach; ?>
+                            </li>
                     </ul>
+
                 </li>
-                <li><a href="#">Rendez-vous</a></li>
+                <li class="base_li_menu"><a href="#">Rendez-vous</a></li>
             </ul>
         </nav>
     </div>
