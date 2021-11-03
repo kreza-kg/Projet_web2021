@@ -17,12 +17,16 @@
     background-color:#64abfb;
     padding:0;
     margin:0;
+    position: center;
 }
 #menu_deroulant_principal ul li {
     list-style: none;
     line-height:44px;
     float:left;
     background-color:#64abfb;
+}
+#ul_menu{
+    text-align: center;
 }
 #menu_deroulant_principal ul li a {
     color:#FFF;

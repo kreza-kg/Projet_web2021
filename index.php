@@ -2,11 +2,11 @@
 include('Config/Database.php');
 $connexion = connexionBd();
 
-// ** test **   if(!isset($_SESSION)){
-//                  header("location:View/Homepage/homepage.php");
-//              }
+/* if(!isset($_SESSION)){
+                 header("location:View/Homepage/homepage.php");
+              } */
 
-//**** Requete ****/
+
 
 $RequeteSujet = "SELECT * FROM sujet";
 $info2=$connexion->query($RequeteSujet );
@@ -33,7 +33,7 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
     ?>
     <div>
         <nav id="menu_deroulant_principal">
-            <ul>
+            <ul id="ul_menu">
                 <li class="base_li_menu" ><a href="#">Accueil</a></li>
                 <!-- Début du menu déroulant -->
                 <li class="base_li_menu"><a href="#">Science</a>
@@ -44,7 +44,6 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                             <?php endforeach; ?>
                             </li>
                     </ul>
-
                 </li>
                 <li class="base_li_menu"><a href="#">Rendez-vous</a></li>
             </ul>
