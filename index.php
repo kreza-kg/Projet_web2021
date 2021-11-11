@@ -3,14 +3,14 @@ include('Config/Database.php');
 $connexion = connexionBd();
 
 /* if(!isset($_SESSION)){
-                 header("location:View/Homepage/homepage.php");
+
               } */
 
-
-
+// Requete pour selectionner les sujets pour le menu
 $RequeteSujet = "SELECT * FROM sujet";
 $info2=$connexion->query($RequeteSujet );
 $req1=$info2->fetchAll(PDO::FETCH_OBJ);
+
 
 ?>
 
@@ -23,7 +23,7 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link  href="../../Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
     <link href="../../Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
 <header>
