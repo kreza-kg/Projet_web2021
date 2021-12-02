@@ -3,6 +3,9 @@
 /* faire un systeme de changement de langue | mettre en place a la fin du projet */
 /* pour ce faire il faudrait mettre un bouton pour switch la langue, puis une condition $_GET[lang] */
 
+setcookie("Connection",time()+60*60*24);
+
+
 
 ?>
 <!doctype html>
@@ -18,7 +21,7 @@
 <div></div>
 <div id="div_homepage">
     <div id="div_entre">
-        <a href="../../index.php" class="button">Acces</a>
+        <a href="../../../index.php" class="button">Acces</a>
     </div>
 
 </div>

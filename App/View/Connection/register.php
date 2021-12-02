@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../Config/Database.php');
+include('../../../App/Config/Database.php');
 $connexion = connexionBd();
 
 if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) && !empty($_POST['Prenom'])) && (isset($_POST['Pseudo']) && !empty($_POST['Pseudo'])) &&
@@ -12,7 +12,7 @@ if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) &
     $Mail = htmlspecialchars($_POST['Mail']);
     $Password = htmlspecialchars($_POST['Password']);
 
-    $sql = $connexion->prepare("INSERT INTO compte ( Pseudo, nom, prenom, mail, password, id ) VALUES (:Nom, :Prenom,:Pseudo,:Mail,:Password, null)");
+    $sql = $connexion->prepare("INSERT INTO users ( Pseudo, nom, prenom, mail, password, id ) VALUES (:Nom, :Prenom,:Pseudo,:Mail,:Password, null)");
     $sql->bindParam(':Nom', $Nom);
     $sql->bindParam(':Prenom', $Prenom);
     $sql->bindParam(':Pseudo', $Pseudo);
@@ -20,7 +20,7 @@ if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) &
     $sql->bindParam(':Password', $Password);
 
     $sql->execute();
-    header('Location: ../../index.php');
+    header('Location: ../../../index.php');
     $_SESSION['Pseudo'] = $Pseudo;
 
 }
@@ -52,7 +52,7 @@ if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) &
         <label><b>Mot de passe</b></label>
         <input type="password" placeholder="mot de passe" name="Password" required>
 
-        <input type="submit" value="M'inscrire"/>
+        <input type="submit" value="S'inscrire"/>
     </form>
 </div>
 </body>

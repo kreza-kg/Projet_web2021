@@ -12,16 +12,16 @@ if(isset($_POST['Pseudo']) && isset($_POST['password']))
 
     if($Pseudo !== "" && $password !== "")
     {
-        $requete = "SELECT count(*) FROM compte where 
+        $requete = "SELECT count(*) FROM users where 
               Pseudo = '".$Pseudo."' and password = '".$password."' ";
         $requete2=$connexion->query($requete);
-        $req1=$requete2->fetch();
 
+        $req1=$requete2->fetch();
         $count = $req1['count(*)'];
         if($count!=0)
         {
             $_SESSION['Pseudo'] = $Pseudo;
-            header('Location: ../../index.php');
+            header('Location: ../../../index.php');
         }
         else
         {

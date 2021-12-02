@@ -3,7 +3,7 @@
 // ---- une requete sql pour plusieurs pages disponible
 // ---- Eventuellement faire affiché des "pub" pour prendre des rendez vous selon la catégorie.
 
-include('Config/Database.php');
+include('App/Config/Database.php');
 $connexion = connexionBd();
 
 $idRecup = $_GET['id'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('Config/Database.php');
+include('App/Config/Database.php');
 $connexion = connexionBd();
 
 // Requete pour selectionner les sujets pour le menu déroulant
@@ -32,9 +32,9 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                     // Si une connexion a été effectué la session prend le pseudo de la personne connecté
                     $user = $_SESSION['Pseudo'];
                     ?>
-                    <p>Bonjour <?=$user;?>, vous êtes connecté</p>
+                    <p>Bonjour <?=$user;?>, vous êtes connecté </p>
                     <div id="div_bouton">
-                        <a href='../../index.php?deconnexion=true'>Déconnexion</a>
+                        <a href='../../../index.php?deconnexion=true'>Déconnexion</a>
                         <?php if(isset($_GET['deconnexion']))
                         {
                             if($_GET['deconnexion']==true)
@@ -48,8 +48,8 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                 <?php else : ?>
                     <!-- Si personne ne s'est connecté auparavant alors aucune session n'a été crée, il est donc possible de se créer un compte ou de se connecter -->
                     <div id="div_bouton">
-                        <a href="../../View/Connection/login.php" class="button">Connexion</a>
-                        <a href="../../View/Connection/register.php" class="button">S'enregistrer</a>
+                        <a href="../../../App/View/Connection/login.php" class="button">Connexion</a>
+                        <a href="../../../App/View/Connection/register.php" class="button">S'enregistrer</a>
                     </div>
                 <?php endif;?>
             </ul>
@@ -65,12 +65,13 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                         <li class="menu_science_deroulant">
                             <!-- Boucle pour tout les éléments que la requete retourne, cela permet d'afficher les catégories du menu déroulant-->
                             <?php foreach($req1 as $key => $value): ?>
-                                <a href="../Contenu/Articles.php?id=<?=$value->id?>"><?=$value->nom?></a>
+                                <a href="../../View/Contenu/Articles.php?id=<?=$value->id?>"><?=$value->Nom?></a>
                             <?php endforeach; ?>
                         </li>
                     </ul>
                 </li>
                 <li class="base_li_menu"><a href="#">Rendez-vous</a></li>
+                <li class="base_li_menu"><a href="../../../App/View/Admin/Admin.php">Admin</a></li>
             </ul>
         </nav>
     </div>
