@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('App/Config/Database.php');
+
 $connexion = connexionBd();
 
 // Requete pour selectionner les sujets pour le menu déroulant
@@ -31,6 +31,10 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                 <?php if(isset($_SESSION['Pseudo'])) :
                     // Si une connexion a été effectué la session prend le pseudo de la personne connecté
                     $user = $_SESSION['Pseudo'];
+                    $requete = "SELECT count(*) FROM admin where pseudo = '$user'";
+                    $requete2=$connexion->query($requete);
+                    $requete3=$requete2->fetch();
+                    $count = $requete3['count(*)'];
                     ?>
                     <p>Bonjour <?=$user;?>, vous êtes connecté </p>
                     <div id="div_bouton">
@@ -45,11 +49,17 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                             }
                         }?>
                     </div>
+                    <?php if($count!=0) :
+                    // Si une connexion a été effectué en tant qu'admin, accée a la page administration
+                    ?>
+                    <a href="/App/View/Admin/administration.php">Administration</a>
+                    <?php endif;?>
+
                 <?php else : ?>
                     <!-- Si personne ne s'est connecté auparavant alors aucune session n'a été crée, il est donc possible de se créer un compte ou de se connecter -->
                     <div id="div_bouton">
-                        <a href="../../../App/View/Connection/login.php" class="button">Connexion</a>
-                        <a href="../../../App/View/Connection/register.php" class="button">S'enregistrer</a>
+                        <a href="/App/View/Connection/login.php" class="button">Connexion</a>
+                        <a href="/App/View/Connection/register.php" class="button">S'enregistrer</a>
                     </div>
                 <?php endif;?>
             </ul>
@@ -58,20 +68,19 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
     <div>
         <nav id="menu_deroulant_principal">
             <ul id="ul_menu">
-                <li class="base_li_menu" ><a href="#">Accueil</a></li>
+                <li class="base_li_menu" ><a href="../../../index.php">Accueil</a></li>
                 <!-- Début du menu déroulant -->
                 <li class="base_li_menu"><a href="#">Science</a>
                     <ul>
                         <li class="menu_science_deroulant">
                             <!-- Boucle pour tout les éléments que la requete retourne, cela permet d'afficher les catégories du menu déroulant-->
                             <?php foreach($req1 as $key => $value): ?>
-                                <a href="../../View/Contenu/Articles.php?id=<?=$value->id?>"><?=$value->Nom?></a>
+                                <a href="../../../App/View/Contenu/Articles.php?Sujet=<?=$value->Nom;?>"><?=$value->Nom;?></a>
                             <?php endforeach; ?>
                         </li>
                     </ul>
                 </li>
                 <li class="base_li_menu"><a href="#">Rendez-vous</a></li>
-                <li class="base_li_menu"><a href="../../../App/View/Admin/Admin.php">Admin</a></li>
             </ul>
         </nav>
     </div>

@@ -3,7 +3,7 @@
 /* faire un systeme de changement de langue | mettre en place a la fin du projet */
 /* pour ce faire il faudrait mettre un bouton pour switch la langue, puis une condition $_GET[lang] */
 
-setcookie("Connection",time()+60*60*24);
+setcookie("Connection","User0.1",time()+60*60*24);
 
 
 

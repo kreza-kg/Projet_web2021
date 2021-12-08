@@ -1,12 +1,11 @@
 <?php
 
-if(isset($_COOKIE['Connection'])){
+include('App/Config/Database.php');
+/*if(isset($_COOKIE['Connection'])){
     $user_cookie = $_COOKIE['Connection'];
 }else{
     header('Location: App/View/Homepage/homepage.php');
-}
-
-
+}*/
 if(isset($_SESSION['Pseudo'])){
     $user = $_SESSION['Pseudo'];
 }
@@ -27,15 +26,19 @@ if(isset($_SESSION['Pseudo'])){
     <title>Home</title>
 </head>
 <body>
-<?php
-// Importation footer (require)
-require('App/View/Affichage/header.php');
-?>
+<div>
+    <?php
+    // Importation footer (require)
+    require('App/View/Affichage/header.php');
+    ?>
+</div>
 
-<?php
-// Importation footer (require)
-require('App/View/Affichage/footer.php');
-?>
+<div>
+    <?php
+    // Importation footer (require)
+    require('App/View/Affichage/footer.php');
+    ?>
+</div>
 
 </body>
 </html>

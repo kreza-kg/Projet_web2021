@@ -12,7 +12,7 @@ if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) &
     $Mail = htmlspecialchars($_POST['Mail']);
     $Password = htmlspecialchars($_POST['Password']);
 
-    $sql = $connexion->prepare("INSERT INTO users ( Pseudo, nom, prenom, mail, password, id ) VALUES (:Nom, :Prenom,:Pseudo,:Mail,:Password, null)");
+    $sql = $connexion->prepare("INSERT INTO users ( Pseudo, nom, prenom, mail, password, id ) VALUES (:Pseudo, :Nom, :Prenom,:Mail,:Password, null)");
     $sql->bindParam(':Nom', $Nom);
     $sql->bindParam(':Prenom', $Prenom);
     $sql->bindParam(':Pseudo', $Pseudo);

@@ -1,14 +1,15 @@
 <?php
-//Faire passer la catégorie de l'article via l'url, puis faire affiché chacun des articles selon l'url.
 // ---- une requete sql pour plusieurs pages disponible
 // ---- Eventuellement faire affiché des "pub" pour prendre des rendez vous selon la catégorie.
 
-include('App/Config/Database.php');
+include('../../../App/Config/Database.php');
+include('../../../App/Config/utile.php');
+
 $connexion = connexionBd();
 
-$idRecup = $_GET['id'];
+$SujetRecup = $_GET['Sujet'];
 
-$SqlArticles = "SELECT * FROM article WHERE id = .$idRecup";
+$SqlArticles = "SELECT * FROM article WHERE Sujet = '$SujetRecup'";
 $articles=$connexion->query($SqlArticles);
 $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
 
@@ -23,26 +24,37 @@ $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
     <title>Articles</title>
 </head>
 <body>
-<?php
-// Importation footer (require)
-require('View/Affichage/header.php');
-?>
+<div>
+    <?php
+    // Importation header (require)
+    require('../../../App/View/Affichage/header.php');
+    ?>
+</div>
+
 <div>
     <!-- Requete afin d'afficher tout les articles en fonction de leurs sujet-->
     <?php foreach($ReqArticles as $key => $value): ?>
         <article class="Article_principal">
-            <h2><?=$value->nom?></h2>
+            <h2><?=$value->Nom?></h2>
             <h3><?=$value->Pseudo?></h3>
-            <img src="<?=$value->img?>" alt="">
-            <p><?=$value->contenu?></p>
-            <p><?=$value->date?></p>
+            <img name="ImgArticles" src="<?=$value->Img?>" alt="">
+            <?php
+            $ArticleCourt = tronquer_texte($value->Description); //fonction pour raccourcir la longueur de la description des articles
+            ?>
+            <p><?=$ArticleCourt?></p>
+            <a href="articleComplet.php?ArticleNo=<?=$value->Id;?>">En savoir plus</a>
+
+            <!--<p><?=$value->date?></p> -->
         </article>
     <?php endforeach; ?>
 
 </div>
-<?php
-// Importation footer (require)
-require('View/Affichage/footer.php');
-?>
+<div>
+    <?php
+    // Importation footer (require)
+    require('../../../App/View/Affichage/footer.php');
+    ?>
+</div>
+
 </body>
 </html>
