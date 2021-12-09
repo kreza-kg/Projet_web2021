@@ -1,10 +1,10 @@
 <?php
 
-include('App/Config/Database.php');
+include('app/config/Database.php');
 /*if(isset($_COOKIE['Connection'])){
     $user_cookie = $_COOKIE['Connection'];
 }else{
-    header('Location: App/View/Homepage/homepage.php');
+    header('Location: app/view/Homepage/homepage.php');
 }*/
 if(isset($_SESSION['Pseudo'])){
     $user = $_SESSION['Pseudo'];
@@ -21,22 +21,22 @@ if(isset($_SESSION['Pseudo'])){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="App/Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
-    <link href="App/Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
+    <link href="app/contenu/Css/Reset.css" rel="stylesheet" type="text/css">
+    <link href="app/contenu/Css/Main.css" rel="stylesheet" type="text/css" />
     <title>Home</title>
 </head>
 <body>
 <div>
     <?php
     // Importation footer (require)
-    require('App/View/Affichage/header.php');
+    require('app/view/Affichage/header.php');
     ?>
 </div>
 
 <div>
     <?php
     // Importation footer (require)
-    require('App/View/Affichage/footer.php');
+    require('app/view/Affichage/footer.php');
     ?>
 </div>
 

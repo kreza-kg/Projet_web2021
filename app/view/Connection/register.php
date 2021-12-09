@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../../App/Config/Database.php');
+include('../../../app/config/Database.php');
 $connexion = connexionBd();
 
 if((isset($_POST['Nom']) && !empty($_POST['Nom'])) && (isset($_POST['Prenom']) && !empty($_POST['Prenom'])) && (isset($_POST['Pseudo']) && !empty($_POST['Pseudo'])) &&

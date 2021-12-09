@@ -2,14 +2,14 @@
 // ---- une requete sql pour plusieurs pages disponible
 // ---- Eventuellement faire affiché des "pub" pour prendre des rendez vous selon la catégorie.
 
-include('../../../App/Config/Database.php');
-include('../../../App/Config/utile.php');
+include('../../../app/config/Database.php');
+include('../../../app/config/utile.php');
 
 $connexion = connexionBd();
 
-$SujetRecup = $_GET['Sujet'];
+$SujetRecup = $_GET['sujet'];
 
-$SqlArticles = "SELECT * FROM article WHERE Sujet = '$SujetRecup'";
+$SqlArticles = "SELECT * FROM article WHERE sujet = '$SujetRecup'";
 $articles=$connexion->query($SqlArticles);
 $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
 
@@ -27,7 +27,7 @@ $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
 <div>
     <?php
     // Importation header (require)
-    require('../../../App/View/Affichage/header.php');
+    require('../../../app/view/Affichage/header.php');
     ?>
 </div>
 
@@ -52,7 +52,7 @@ $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
 <div>
     <?php
     // Importation footer (require)
-    require('../../../App/View/Affichage/footer.php');
+    require('../../../app/view/Affichage/footer.php');
     ?>
 </div>
 

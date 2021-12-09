@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Users
+class users
 {
     public $Pseudo;
     public $nom;

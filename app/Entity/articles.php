@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Articles
+class articles
 {
     public $nom;
     public $contenu;

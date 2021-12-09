@@ -1,4 +1,7 @@
 <?php
+
+
+
 define("SERVEUR","localhost");
 define("USER","root");
 define("MDP","");

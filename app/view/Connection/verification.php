@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../Config/Database.php');
+include('../../config/Database.php');
 $connexion = connexionBd();
 
 
