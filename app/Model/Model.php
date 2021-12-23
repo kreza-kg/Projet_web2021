@@ -41,19 +41,6 @@ class Model{
     public function find($data=array()) : array
     {
 
-        /*$conditions="1";
-        $fields="*";
-        $limit="";
-        $order=$this->table.".id DESC";
-        $othertable="";
-        if(isset($data["conditions"])){$conditions=$data["conditions"];}
-        if(isset($data["fields"])){$fields=$data["fields"];}
-        if(isset($data["limit"])){$limit="LIMIT".$data["limit"];}
-        if(isset($data["order"])){$order=$data["order"];}
-        if(isset($data["othertable"])){$othertable=','.$data["othertable"];}
-
-
-        $sql="SELECT $fields FROM ". $this->table." ".$othertable." WHERE $conditions ORDER BY $order $limit";*/
 
         $sql = "Select * FROM " . $this->table;
 

@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link href="../../contenu/Css/Reset.css" rel="stylesheet" type="text/css">
-    <link href="../../contenu/Css/Main.css" rel="stylesheet" type="text/css" />
+    <link href="../../Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
+    <link href="../../Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <footer id="footer">

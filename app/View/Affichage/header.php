@@ -17,8 +17,8 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../../contenu/Css/Reset.css" rel="stylesheet" type="text/css">
-    <link href="../../contenu/Css/Main.css" rel="stylesheet" type="text/css">
+    <link href="../../Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
+    <link href="../../Contenu/Css/Main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header>
@@ -52,14 +52,14 @@ $req1=$info2->fetchAll(PDO::FETCH_OBJ);
                     <?php if($count!=0) :
                     // Si une connexion a été effectué en tant qu'admin, accée a la page administration
                     ?>
-                    <a href="/app/view/Admin/administration.php">Administration</a>
+                    <a href="/app/View/Admin/administration.php">Administration</a>
                     <?php endif;?>
 
                 <?php else : ?>
                     <!-- Si personne ne s'est connecté auparavant alors aucune session n'a été crée, il est donc possible de se créer un compte ou de se connecter -->
                     <div id="div_bouton">
-                        <a href="/app/view/Connection/login.php" class="button">Connexion</a>
-                        <a href="/app/view/Connection/register.php" class="button">S'enregistrer</a>
+                        <a href="/app/View/Connection/login.php" class="button">Connexion</a>
+                        <a href="/app/View/Connection/register.php" class="button">S'enregistrer</a>
                     </div>
                 <?php endif;?>
             </ul>

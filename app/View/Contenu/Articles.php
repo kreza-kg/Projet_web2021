@@ -14,22 +14,7 @@ $articles=$connexion->query($SqlArticles);
 $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
 
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Articles</title>
-</head>
-<body>
-<div>
-    <?php
-    // Importation header (require)
-    require('../../../app/view/Affichage/header.php');
-    ?>
-</div>
+
 
 <div>
     <!-- Requete afin d'afficher tout les articles en fonction de leurs sujet-->
@@ -49,12 +34,3 @@ $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);
     <?php endforeach; ?>
 
 </div>
-<div>
-    <?php
-    // Importation footer (require)
-    require('../../../app/view/Affichage/footer.php');
-    ?>
-</div>
-
-</body>
-</html>

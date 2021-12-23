@@ -23,7 +23,6 @@ class ModelUsers extends Model
         foreach ($arrayVille as $unUser){
             $newTab[]=new users($unUser);
         }
-
         return $newTab;
     }
 
