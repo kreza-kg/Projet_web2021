@@ -9,11 +9,9 @@ use \PDO;
 
 class Model{
 
-    protected string $table;
+    protected String $table = "" ;
 
     private \PDO $connexion;
-
-
 
     public function __construct( ){
 
@@ -21,35 +19,25 @@ class Model{
         $this->connexion=$db->connexionBd();
     }
 
-
-
     public function read($id) : array
     {
 
-        $sql="SELECT * FROM ".$this->table." WHERE id=".$id;
+        $sql=" SELECT * FROM ".$this->table." WHERE Id= ".$id;
 
         $retour=$this->connexion->query($sql);
-        $content=$retour->fetch(PDO::FETCH_ASSOC);
+        $content=$retour->fetchAll(PDO::FETCH_ASSOC);
 
         return $content;
 
     }
 
-
-
-
     public function find($data=array()) : array
     {
 
-
-        $sql = "Select * FROM " . $this->table;
-
+        $sql = "Select * FROM " .$this->table;
         $prepa=$this->connexion->prepare($sql);
-
         $prepa->execute();
-
         $data=$prepa->fetchAll(PDO::FETCH_ASSOC);
-
 
         return $data;
 
@@ -79,12 +67,16 @@ class Model{
         return $retour;
     }
 
+    public function allArticlesSujet($nom) : array
+    {
 
+        $sql="SELECT * FROM ".$this->table." WHERE Sujet = '$nom'";
 
+        $retour=$this->connexion->query($sql);
+        $content=$retour->fetch(PDO::FETCH_ASSOC);
 
+        return $content;
 
-
-
-
+    }
 
 }
