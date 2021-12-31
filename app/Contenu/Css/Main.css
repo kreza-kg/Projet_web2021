@@ -2,51 +2,394 @@
 
 /* ------------ Header ------------ */
 
+body{
+    background-color:#282d32;
 
+}
+
+#div_bouton{
+    text-align: right;
+}
+
+.button{
+    background: linear-gradient(45deg, #B388EB, #8093F1);
+    padding: 15px;
+    border-radius: 20px;
+    color: #FFF;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 200;
+    text-decoration: none;
+}
 
 /* ------------ Menu deroulant ------------ */
+#div_menu_princ{
+    margin-left: 40%;
+}
 
 .base_li_menu{
     list-style:none !important;
-    color:#FFF;
+    color:#B388EB;
     padding:10px;
     font-size:20px;
     text-decoration:none;
+
 }
 #menu_deroulant_principal ul {
-    background-color:#64abfb;
+
     padding:0;
     margin:0;
     position: center;
+
 }
 #menu_deroulant_principal ul li {
     list-style: none;
     line-height:44px;
     float:left;
-    background-color:#64abfb;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-bottom: #B388EB;
+    border-bottom: 2px #B388EB solid;
+    margin-right: 15px;
+    margin-left: 15px;
+
 }
 #ul_menu{
     text-align: center;
 }
+
 #menu_deroulant_principal ul li a {
-    color:#FFF;
+    color:#B388EB;
     padding:10px;
     font-size:20px;
     text-decoration:none;
+
 }
 #menu_science_deroulant a:hover {
-    border-bottom:3px #FFF solid;
+    border-bottom:3px solid;
+
 }
-#menu_deroulant_principal ul li ul { display:none; } /* Rend le menu déroulant caché par défaut */
-#menu_deroulant_principal ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
+#menu_deroulant_principal ul li ul { display:none; }
+#menu_deroulant_principal ul li:hover ul {
     z-index:99999;
     display:list-item !important;
     position:absolute;
     margin-top:5px;
     margin-left:-10px;
+
 }
+
 #menu_deroulant_principal ul li:hover ul li {
     float:none;
+}
+
+/* ------------ Body ------------ */
+#Welcome{
+    margin-top: 7%;
+    text-align: center;
+    font-size: 45px;
+}
+
+#agicheur{
+    margin-top: 1%;
+    text-align: center;
+    font-size: 25px;
+}
+
+#nav_welcome{
+    border-bottom: 3px solid black;
+    padding-bottom: 45px;
+    padding-top: 45px;
+}
+
+#nav_Phy{
+    background:#C0C0C0;
+}
+
+#nav_astro{
+    background:#A9A9A9;
+}
+
+#nav_Sci{
+    background: grey;
+}
+
+#titre_astro{
+    text-align: right;
+}
+
+#titre_Physique{
+    text-align: left;
+}
+
+#titre_Sci{
+    text-align: center;
+}
+
+#para_Sci{
+    text-align: center;
+}
+
+#para_physique{
+    text-align: left;
+}
+
+#para_astro{
+    text-align: right;
+}
+
+.nav_home{
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.titre_home{
+    font-size: 25px;
+}
+
+.para_home{
+    font-size: 20px;
+}
+
+
+
+/* ------------ Login ------------ */
+.container-login{
+    width: 98%;
+    min-height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+/*Forme externe du formulaire*/
+.login-form-ext{
+    width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    /*position*/
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-bottom: 55px;
+    padding-top: 55px;
+    border:#B388EB 2px solid;
+}
+/*Forme interne du formulaire*/
+.login-form-int{
+    width: 100%;
+}
+/*Titre du formulaire*/
+#titre-form {
+    display: block;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.login-form-user{
+    position: relative;
+    width: 100%;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+/*Label des champs*/
+.login-form-user>div>label, .login-form-user>div>textarea , .login-form-ext>form>div>label{
+
+}
+.login-form-user>div>textarea{
+    margin-top: 10px;
+}
+
+
+/*Label du formulaire*/
+.label-input{
+    font-size: 15px;
+    line-height: 1.5;
+
+
+    /*Position*/
+    padding-left: 5px;
+}
+
+/*Champs a remplir*/
+.input{
+    display: block;
+    width: 100%;
+    line-height: 1.2;
+    height: 30px;
+
+    border: none;
+    /*Texte*/
+
+    font-size: 15px;
+    margin-top: 10px;
+}
+/*quand on clique sur le champ, le texte disparait*/
+.input:focus::placeholder {
+    color: transparent;
+}
+
+/*Bouton*/
+.btn-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.btn-form{
+    display: block;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    border-radius: 15px;
+
+    /*Texte du bouton*/
+
+    font-size: 20px;
+}
+
+
+/* ------------ articles ------------ */
+
+.Article_principal{
+    color: #8093F1;
+    background-color: #1c1c1c;
+    position: center;
+    margin: 0% 20% 2% 20%;
+    border-radius: 2%;
+    padding-bottom: 1%;
+}
+
+.Article_principal  h2{
+    text-align: left;
+    margin-left: 3%;
+    padding-top: 2%;
+    font-size: 30px;
+}
+
+.Article_principal p{
+    text-align: center;
+}
+
+.Article_principal a{
+    text-decoration: none;
+    color: #8093F1;
+    margin-left: 90%;
+    padding-bottom: 2%;
+}
+
+article a{
+    text-align: right;
+}
+
+
+#div_article{
+    margin-top: 10%;
+}
+
+.ImgArticles{
+    max-width: 90%;
+    height: auto;
+    text-align: center;
+    margin:auto;
+    display:flex;
+    border-radius: 2%;
+}
+
+#article_complet{
+    margin-top: 10%;
+}
+
+#article_complet h3{
+    text-align: right;
+    padding-right: 20px;
+    color: #C0C0C0;
+}
+
+/* ------------ administration ------------ */
+
+.admin-form-int{
+    width: 60%;
+}
+
+.admin-form-user{
+    position: relative;
+    width: 100%;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.administration{
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.titre_admin{
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 30px;
+}
+
+.admin-form-ext{
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-top: 55px;
+    margin-top: 10%;
+    border-top:#B388EB 2px solid;
+}
+
+#fieldset_article{
+    font-size: 15px;
+}
+/* ------------ Evenements ------------ */
+.evenement_div{
+    margin-top: 15%;
+}
+.event_each{
+    border-top: #8093F1 2px solid;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.evenement_div a{
+    color: #B388EB;
+    text-decoration: none;
+}
+
+#image_reservation{
+    clip-path: circle(40%);
+    position: center;
+    max-width: 50%;
+    height: auto;
+    text-align: center;
+    margin:auto;
+    display:flex;
+}
+
+.reserv-form-ext{
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-top: 55px;
+    margin-top: 5%;
+    border-top:#B388EB 2px solid;
+}
+
+.login-form-int p{
+    padding-top: 25px;
+    font-size: 19px;
+}
+
+#titre-revers{
+    font-size: 25px;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 /* ------------ footer ------------ */
@@ -57,5 +400,20 @@
     width:100%;
     padding-top:50px;
     height:50px;
+    text-align: center;
+}
+#extra{
+    background-color:#282d32;
+    position: static;
+    bottom:0;
+    width:100%;
+    padding-top:50px;
+    height:50px;
+    margin-top: 0;
+    border-top: black 2px solid;
+
+}
+
+div #extra{
     text-align: center;
 }

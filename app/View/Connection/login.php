@@ -1,22 +1,32 @@
-<div>
+<div class="container-login">
 
-    <form action="index.php?Connexion" method="POST">
-        <h1>Connexion</h1>
+    <div class="login-form-ext">
+        <form class="login-form-int" action="index.php?Connexion" method="POST">
+            <h1 id="titre-form" >Connexion</h1>
 
-        <label><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Pseudo" name="Pseudo" required>
+            <div class="login-form-user">
+                <label><b>Nom d'utilisateur</b></label>
+                <input type="text" placeholder="Pseudo" name="Pseudo" id="inputUsername" class="form-control input" required>
 
-        <label><b>Mot de passe</b></label>
-        <input type="password" placeholder="mot de passe" name="password" required>
+            </div>
+            <div class="login-form-user">
+                <label><b>Mot de passe</b></label>
+                <input type="password" placeholder="mot de passe" name="password" id="inputPassword" class="form-control input" required>
+            </div>
 
-        <input type="submit" id='submit' value='LOGIN' >
-        <!-- <?php
-        if(isset($_GET['erreur'])){
-            $err = $_GET['erreur'];
-            if($err==1 || $err==2)
-                echo "<p>Utilisateur ou mot de passe incorrect</p>";
-        }
-        ?> -->
-    </form>
+            <div class="btn-form-container">
+                <input type="submit" id='submit'  class="btn-form" value='LOGIN' >
+            </div>
+
+            <!-- <?php
+            if(isset($_GET['erreur'])){
+                $err = $_GET['erreur'];
+                if($err==1 || $err==2)
+                    echo "<p>Utilisateur ou mot de passe incorrect</p>";
+            }
+            ?> -->
+        </form>
+    </div>
+
 </div>
 

@@ -15,10 +15,10 @@ $ReqArticles=$articles->fetchAll(PDO::FETCH_OBJ);*/
 <div>
     <!-- Requete afin d'afficher l'article ciblé-->
     <?php foreach($OneArticle as $key => $value): ?>
-        <article class="Article_Complet">
+        <article id="article_complet" class="Article_principal">
             <h2><?=$value->Nom?></h2>
             <h3><?=$value->Pseudo?></h3>
-            <img name="ImgArticlesComplet" src="<?=$value->Img?>" alt="">
+            <img class="ImgArticles" src="<?=$value->Img?>" alt="">
             <p><?=$value->Description?></p>
             <!--<p><?=$value->date?></p> -->
         </article>

@@ -51,13 +51,21 @@ class ModelAdmin extends Model
     }
 
     public function supprimerReservationAdmin($idReserv){
-        $SqlSupp="Delete FROM reservation where id = '$idRserv'";
+        $SqlSupp="Delete FROM reservation where id = '$idReserv'";
         $this->connexion->exec($SqlSupp);
     }
 
     public function FindNotTabUsers()
     {
         $SqlArticles = "Select * FROM users";
+        $users=$this->connexion->query($SqlArticles);
+        $Requsers=$users->fetchAll(PDO::FETCH_OBJ);
+        return $Requsers;
+    }
+
+    public function FindNotTabrdv()
+    {
+        $SqlArticles = "Select * FROM reservation";
         $users=$this->connexion->query($SqlArticles);
         $Requsers=$users->fetchAll(PDO::FETCH_OBJ);
         return $Requsers;

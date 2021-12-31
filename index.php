@@ -36,12 +36,11 @@ $CR = new ReservationController();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="app/Contenu/Css/Reset.css" rel="stylesheet" type="text/css">
     <link href="app/Contenu/Css/Main.css" rel="stylesheet" type="text/css" />
     <title>Home</title>
 </head>
 <body>
-<div>
+<div id="body_header">
     <header>
         <div>
             <nav id="nav_header">
@@ -56,7 +55,7 @@ $CR = new ReservationController();
                         ?>
 
                         <div id="div_bouton">
-                            <a href='index.php?deconnexion=true'>Déconnexion</a>
+                            <a href='index.php?deconnexion=true' class="button">Déconnexion</a>
                             <?php if(isset($_GET['deconnexion']))
                             {
                                 if($_GET['deconnexion']==true)
@@ -77,13 +76,13 @@ $CR = new ReservationController();
                 </ul>
             </nav>
         </div>
-        <div>
+        <div id="div_menu_princ">
             <nav id="menu_deroulant_principal">
                 <ul id="ul_menu">
                     <li class="base_li_menu" ><a href="index.php">Accueil</a></li>
                     <!-- Début du menu déroulant -->
                     <li class="base_li_menu"><a href="index.php?Science">Science</a>
-                        <ul>
+                        <ul id="menu">
                             <li class="menu_science_deroulant">
                                 <!-- Boucle pour tout les éléments que la requete retourne, cela permet d'afficher les catégories du menu déroulant-->
                                 <?php
@@ -100,23 +99,24 @@ $CR = new ReservationController();
 </div>
 <div>
     <?php if(empty($_GET)): ?>
-        <nav>
-            <h2> Bienvenue ! </h2>
-            <p>Retrouver toute l'actualité du monde scientifique</p></nav>
-        <nav>
-            <h3>Physique</h3>
-            <p>La partie physique regroupe toute science qui étudie le comportement ou qui, du moins essaye de comprendre et d'expliquer tout phénomène naturel.
+        <nav id="nav_welcome">
+            <h2 id="Welcome"> Bienvenue ! </h2>
+            <p id="agicheur">Retrouver toute l'actualité du monde scientifique</p>
+        </nav>
+        <nav id="nav_Phy" class="nav_home">
+            <h3 class="titre_home" id="titre_Physique">Physique</h3>
+            <p class="para_home" id="para_physique" >La partie physique regroupe toute science qui étudie le comportement ou qui, du moins essaye de comprendre et d'expliquer tout phénomène naturel.
                 Ici comprendront toutes nouvelles découvertes sur ces lois, ces formes, ces variables ainsi que son évolution !</p>
         </nav>
-        <nav>
-            <h3>L'astronomie</h3>
-            <p>L'astronomie quant à elle est la science de l'observation des astres, la recherche de leur origine, de leurs propriétés.
+        <nav id="nav_astro" class="nav_home">
+            <h3 class="titre_home" id="titre_astro" >L'astronomie</h3>
+            <p class="para_home" id="para_astro" >L'astronomie quant à elle est la science de l'observation des astres, la recherche de leur origine, de leurs propriétés.
                 Cette science est la plus ancienne reconnue, de nombreuses religions ont été fondée dues au manque de connaissances ce qui la rend la plus difficile à cerner.
                 Pour étudier cette science, les scientifiques la distinguent comme deux parties, la science de l'observation ainsi que la science de l'astronomie théorique.</p>
         </nav>
-        <nav>
-            <h3>Science-Fi</h3>
-            <p>Dans la partie science-fiction nous allons nous plonger dans le coeur des articles les plus futuristes qui soit.
+        <nav id="nav_Sci" class="nav_home">
+            <h3 class="titre_home" id="titre_Sci" >Science-Fi</h3>
+            <p class="para_home" id="para_Sci" >Dans la partie science-fiction nous allons nous plonger dans le coeur des articles les plus futuristes qui soit.
                 Nous allons donc découvrir d'éventuelle observation future et espérance pour le bien commun.</p>
         </nav>
     <?php endif; ?>
@@ -128,6 +128,7 @@ $CR = new ReservationController();
             $CS->SelectAllMenu();
             $CAdmin->getAllArticlesAdmin();
             $CAdmin->getAllUsersAdmin();
+            $CAdmin->getAllRDVAdmin();
             if (isset($_POST['submit'])){
                 $valideExt = array('.jpg','.jpeg','.gif','.png');
                 $fichName = $_FILES['img']['name'];
@@ -169,7 +170,7 @@ $CR = new ReservationController();
             }
             if (isset($_POST['id_Reserv'])){
                 $idReserv = htmlspecialchars($_POST['id_Reserv']);
-                $CAdmin->SupprimerUser($idReserv);
+                $CAdmin->SupprimerReserv($idReserv);
             }
 
         }else{

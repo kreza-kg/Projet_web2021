@@ -32,6 +32,13 @@ class AdminController
         include ('app/View/Admin/AllUsersAdmin.php');
     }
 
+    public function getAllRDVAdmin(){
+        $AllRdv=$this->model->FindNotTabrdv();
+        include ('app/View/Admin/AllRdvAdmin.php');
+    }
+
+
+
 
 
     public function CreationArticleAdmin($Nom,$Description,$file,$Sujet,$user){
@@ -51,7 +58,6 @@ class AdminController
     }
     public function SupprimerReserv($idReserv){
         $this->model->supprimerReservationAdmin($idReserv);
-
     }
 
 
